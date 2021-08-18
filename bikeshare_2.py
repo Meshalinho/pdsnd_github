@@ -28,7 +28,7 @@ def get_filters():
     # Split string and assign city, month, day accordingly
     inputList = inputCityMonthDay.strip().split(',')
 
-    while len(inputList) < 3 or len(inputList) > 3:
+    while len(inputList) != 3:
         inputCityMonthDay = input("Input is entered incorrectly (either extra variables, or missing variables, have been entered)\nPlease enter the input according to this format => CITY, MONTH, DAY\nFor example: Chicago, June, All\n").lower()
         inputList = inputCityMonthDay.strip().split(',')
 
@@ -39,20 +39,17 @@ def get_filters():
     # When user fails to enter values, they are then directed to enter the data they entered incorrectly seperately
 
     while city not in cities:
-        print("The city you entered is not availible")
-        city = input("Please enter the city you wish to view its data: (Options: Chicago, Washington, New York City) ").lower()
+        city = input("The city you entered is not availible\nPlease enter the city you wish to view its data: (Options: Chicago, Washington, New York City) ").lower()
 
 
 
     while month not in months:
-        print("Can not filter by specified value")
-        month = input("Would you like to filter by month or by day? (Answer by typing 'day' or 'month', if no filter is desired enter 'all')").lower()
+        month = input("Can not filter by specified value\nWould you like to filter by month or by day? (Answer by typing 'day' or 'month', if no filter is desired enter 'all')").lower()
 
 
 
     while day not in days:
-        print("The day entered is not availible")
-        day = input("Please enter the day where you wish to view the data: (Options: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)").lower()
+        day = input("The day entered is not availible\nPlease enter the day where you wish to view the data: (Options: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)").lower()
 
 
 
@@ -213,8 +210,7 @@ def view_users(df):
 
     # Check input validity
     while print_sample not in ['yes', 'no']:
-        print("The response is invalid, please enter either 'Yes' or 'No'")
-        print_sample = input("Would you like to view 5 rows of data for bikeshare users? (Enter 'yes' or 'no')").lower()
+        print_sample = input("The response is invalid, please enter either 'Yes' or 'No'\nWould you like to view 5 rows of data for bikeshare users? (Enter 'yes' or 'no')").lower()
     start_loc = 0
     # If user enters 'yes' proceed to create a dictionary from the dataframe and print index by index the rows into the console
     while print_sample != 'no':
